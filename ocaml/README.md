@@ -15,6 +15,7 @@ The generated binary takes about 1 second to read all the data files, parse them
 The main code is in the `solve_missing_square.ml` file.
 
 It relies on a function for finding the largest rectangle filled with pixels of the same color, which can be found on the `geom.ml` file.
-This function looks complicated but is actually very simple (I'm sure it would look much shorter/simpler in Python, for instance).
+This function looks complicated but is actually very simple.
+I'm sure it would look much shorter/simpler in Python, for instance, or if it was written by a better programmer ;)
 
 The I/O and JSON parsing code is in the `util.ml` file.
