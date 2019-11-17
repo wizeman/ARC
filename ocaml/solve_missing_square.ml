@@ -65,6 +65,7 @@ let process_task (path, task) =
 	end
 
 let () =
+	Printexc.record_backtrace true;
 	let paths = Util.all_paths () in
 	let tasks = Array.map Util.parse_task paths in
 	Array.iter process_task tasks
