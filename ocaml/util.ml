@@ -9,14 +9,14 @@ let parse_grid (name, json) =
 	let grid = Array.map (fun row -> row |> Yu.to_list |> List.map Yu.to_int |> Array.of_list) rows in
 	(name, grid)
 
-let parse_grids (name, json) =
+let parse_pairs (name, json) =
 	let pairs_json = json |> Yu.to_list in
-	let grids = List.map (fun json -> json |> Yu.to_assoc |> List.map parse_grid) pairs_json in
-	(name, grids)
+	let pairs = List.map (fun json -> json |> Yu.to_assoc |> List.map parse_grid) pairs_json in
+	(name, pairs)
 
 let parse_task path =
 	let json = Yo.from_file path in
-	(path, json |> Yu.to_assoc |> List.map parse_grids)
+	(path, json |> Yu.to_assoc |> List.map parse_pairs)
 
 let get_paths dir =
 	Array.map (Filename.concat dir) (Sys.readdir dir)
