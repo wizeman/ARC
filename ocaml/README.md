@@ -12,9 +12,9 @@ The generated binary takes about 1 second to read all the data files, parse them
 
 ## Source code structure
 
-The main code is in the `solve_missing_square.ml` file: https://github.com/wizeman/ARC/blob/solve/ocaml/solve_missing_square.ml
+The main code is in the `solve_missing_square.ml` file.
 
-It relies on a function for finding the largest rectangle filled with pixels of the same color, which can be found here: https://github.com/wizeman/ARC/blob/solve/ocaml/geom.ml
+It relies on a function for finding the largest rectangle filled with pixels of the same color, which can be found on the `geom.ml` file.
 This function looks complicated but is actually very simple (I'm sure it would look much shorter/simpler in Python, for instance).
 
-The I/O and JSON parsing code is here: https://github.com/wizeman/ARC/blob/solve/ocaml/util.ml
+The I/O and JSON parsing code is in the `util.ml` file.
