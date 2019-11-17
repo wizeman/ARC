@@ -58,10 +58,10 @@ let process_task (path, task) =
 		(*
 		 * All training samples produce the same output as us, so
 		 * now let's check that the outputs we produce for the test
-		 * inputs correspond to the expected outputs
+		 * inputs correspond to the expected outputs.
 		 *)
 		assert (all_pairs_qualify "test" task);
-		Printf.printf "example %s solved correctly\n%!" path
+		Printf.printf "task %s solved correctly\n%!" path
 	end
 
 let () =
