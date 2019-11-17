@@ -1,5 +1,9 @@
 (*
- * Find the maximum rectangle filled with the same color.
+ * Find the rectangle with the largest area whose pixels
+ * all have the same color.
+ *
+ * Returns None if multiple rectangles with the largest area
+ * were found.
  *
  * Uses the most naive possible algorithm (brute force) for
  * simplicity (ah!). It's more than fast enough for grids
@@ -29,7 +33,7 @@ let find_max_rectangle input =
 
 	(*
 	 * If this rectangle has sufficient area, check that it's filled
-	 * with the same color. If so, either mark it as a duplicate
+	 * with a homogeneous color. If so, either mark it as a duplicate
 	 * rectangle (same area as previous record) or set a new record.
 	 *)
 	let process_rectangle ll_x ll_y ur_x ur_y =
