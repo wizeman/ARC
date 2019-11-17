@@ -15,9 +15,6 @@ let find_max_rectangle input =
 	let best_ll = ref (-1, -1) in
 	let best_ur = ref (-1, -1) in
 
-	let max_y = Array.length input - 1 in
-	let max_x = Array.length input.(0) - 1 in
-
 	(* Check that the rectangle is filled with the same color *)
 	let check_filled ll_x ll_y ur_x ur_y =
 		let color = input.(ll_y).(ll_x) in
@@ -56,6 +53,9 @@ let find_max_rectangle input =
 	 * Let's use the naive algorithm, as it's fast enough.
 	 * Extreme indentation follows for fun and profit.
 	 *)
+	let max_y = Array.length input - 1 in
+	let max_x = Array.length input.(0) - 1 in
+
 	for ll_y = 0 to max_y do
 		for ll_x = 0 to max_x do
 			for ur_y = ll_y to max_y do
