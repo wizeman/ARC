@@ -11,7 +11,7 @@
  *)
 let find_max_rectangle input =
 	let max_area = ref 0 in
-	let duplicate = ref false in
+	let duplicate = ref true in
 	let best_ll = ref (-1, -1) in
 	let best_ur = ref (-1, -1) in
 
@@ -66,7 +66,7 @@ let find_max_rectangle input =
 		done
 	done;
 
-	if !duplicate || !max_area = 0 then
+	if !duplicate then
 		None
 	else
 		Some (!best_ll, !best_ur)
