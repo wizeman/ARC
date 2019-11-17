@@ -39,28 +39,28 @@ let transform input =
  * from the provided JSON file. If `transform` returns None, the comparison
  * will fail.
  *)
-let qualifies example =
-	let guessed_output = transform (List.assoc "input" example) in
-	let real_output = List.assoc "output" example in
+let qualifies pair =
+	let guessed_output = transform (List.assoc "input" pair) in
+	let real_output = List.assoc "output" pair in
 	guessed_output = Some (real_output)
 
 (*
  * If name = "train", check that `qualifies` returns true for all training inputs/outputs.
  * If name = "test", check that `qualifies` return true for all test inputs/outputs.
  *)
-let all_examples_qualify name task =
-	let examples = List.assoc name task in
-	List.for_all qualifies examples
+let all_pairs_qualify name task =
+	let pairs = List.assoc name task in
+	List.for_all qualifies pairs
 
 (* Process a task *)
 let process_task (path, task) =
-	if all_examples_qualify "train" task then begin
+	if all_pairs_qualify "train" task then begin
 		(*
 		 * All training samples produce the same output as us, so
 		 * now let's check that the outputs we produce for the test
 		 * inputs correspond to the expected outputs
 		 *)
-		assert (all_examples_qualify "test" task);
+		assert (all_pairs_qualify "test" task);
 		Printf.printf "example %s solved correctly\n%!" path
 	end
 
