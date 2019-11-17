@@ -1,0 +1,5 @@
+(library (name common) (modules geom util) (libraries yojson))
+
+(executable (name solve_missing_square) (modules solve_missing_square) (libraries common))
+
+(alias (name default) (deps (alias_rec all)))
